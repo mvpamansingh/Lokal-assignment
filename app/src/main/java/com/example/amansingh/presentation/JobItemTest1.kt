@@ -28,19 +28,24 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.amansingh.data.api.model.Results
+import com.example.amansingh.data.room.JobEntity
 
 
 @Composable
 fun JobItemTest1(modifier:Modifier= Modifier,
-            job: Results , onInfoClicked: () -> Unit)
+            job: Results ,
+                 onInfoClicked: () -> Unit ,
+                 bookmarkScreenViewmodel: BookmarkScreenViewmodel)
 {
     val gradient = Brush.verticalGradient(
         colors = listOf(
@@ -48,6 +53,8 @@ fun JobItemTest1(modifier:Modifier= Modifier,
             Color(0xFF6dd5ed)
         )
     )
+    val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     Card(
         modifier = Modifier
@@ -135,7 +142,19 @@ fun JobItemTest1(modifier:Modifier= Modifier,
                 Icon(
                     imageVector = Icons.Outlined.Bookmark,
                     contentDescription = "Bookmark",
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier
+                        .size(24.dp)
+                        .clickable {
+                            val bookmark = JobEntity(
+                                jobRole = job.job_role,
+                                location = job.job_location_slug,
+                                salaryMin = job.salary_min,
+                                salaryMax = job.salary_max,
+                                contactNumber = job.whatsapp_no,
+                                id = job.id.toString()
+                            )
+                            bookmarkScreenViewmodel.addBookmark(bookmark)
+                        },
                     tint = MaterialTheme.colorScheme.secondary
                 )
                 //space between the two icons
@@ -143,7 +162,9 @@ fun JobItemTest1(modifier:Modifier= Modifier,
                 Icon(
                     imageVector = Icons.Filled.Info,
                     contentDescription = "Info",
-                    modifier = Modifier.size(24.dp).clickable { onInfoClicked() },
+                    modifier = Modifier
+                        .size(24.dp)
+                        .clickable { onInfoClicked() },
                     tint = MaterialTheme.colorScheme.secondary
                 )
 
