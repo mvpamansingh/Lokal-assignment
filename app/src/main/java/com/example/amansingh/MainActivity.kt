@@ -28,6 +28,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.amansingh.api.JobListAPI
 import com.example.amansingh.data.api.model.Results
 import com.example.amansingh.presentation.JobScreen
+import com.example.amansingh.presentation.MainScreen
 import com.example.amansingh.presentation.TopBar
 import com.example.amansingh.ui.theme.AmanSinghTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -61,33 +62,8 @@ class MainActivity : ComponentActivity() {
 //            JobListScreen(viewModel)
             AmanSinghTheme {
 
-                val hazeState = remember {
-                    HazeState()
-                }
-                val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(
-                    state= rememberTopAppBarState()
-                )
-                Scaffold(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .nestedScroll(scrollBehavior.nestedScrollConnection),
-//                        .background(MaterialTheme.colorScheme.background),
 
-                    containerColor = Color.Transparent,
-
-                    topBar = {
-                        TopBar(modifier= Modifier.hazeChild(state=hazeState),
-                            scrollBehavior = scrollBehavior)
-
-                    }
-                ) { innerPadding ->
-                    JobScreen(
-                        hazeState = hazeState,
-                        paddingValues = innerPadding,
-                        viewModel = viewModel
-                    )
-                }
-
+                MainScreen()
             }
         }
     }
