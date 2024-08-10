@@ -121,7 +121,7 @@ fun MyCard(
                     modifier = Modifier.size(20.dp)
                 )
                 Spacer(modifier = Modifier.width(4.dp))
-                Text(text = "${job.job_role}", fontSize = 18.sp)
+                Text(text = "${job.job_role}", fontSize = 18.sp, fontWeight =FontWeight.SemiBold)
             }
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -135,7 +135,7 @@ fun MyCard(
                     tint = Color.Black,
                     modifier = Modifier.size(20.dp)
                 )
-                Text(text = ": ${job.salary_min} - ${job.salary_max}", fontSize = 18.sp)
+                Text(text = ": ${job.salary_min} - ${job.salary_max}", fontSize = 16.sp)
 
             }
             Spacer(modifier = Modifier.height(16.dp))
@@ -162,7 +162,7 @@ fun MyCard(
                     onClick = { onInfoClicked() },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = colorResource(id = R.color.fetch_background)),
-                    border = BorderStroke(2.dp, Color.Red),
+                    border = BorderStroke(2.dp, Color.LightGray),
 
                 ) {
                     Text(text = "Read More")
