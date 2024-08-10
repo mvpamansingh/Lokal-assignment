@@ -2,6 +2,7 @@ package com.example.amansingh.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -39,7 +40,7 @@ import com.example.amansingh.data.api.model.Results
 
 @Composable
 fun JobItemTest1(modifier:Modifier= Modifier,
-            job: Results)
+            job: Results , onInfoClicked: () -> Unit)
 {
     val gradient = Brush.verticalGradient(
         colors = listOf(
@@ -142,7 +143,7 @@ fun JobItemTest1(modifier:Modifier= Modifier,
                 Icon(
                     imageVector = Icons.Filled.Info,
                     contentDescription = "Info",
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(24.dp).clickable { onInfoClicked() },
                     tint = MaterialTheme.colorScheme.secondary
                 )
 
