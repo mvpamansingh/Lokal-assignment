@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    #f3eee8
+    <color name ="card">#f3eee8</color>
+    <color name ="fetch_background">#ebe5d9</color>
+    <color name="bottombar">#d3eabc</color>
 </resources>
