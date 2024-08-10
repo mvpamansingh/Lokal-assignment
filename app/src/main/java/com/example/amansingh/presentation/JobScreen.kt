@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.amansingh.MainActivityViewModel
@@ -23,6 +24,7 @@ import com.example.amansingh.data.api.model.Results
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.HazeStyle
 import dev.chrisbanes.haze.haze
+import com.example.amansingh.R
 
 
 @Composable
@@ -45,13 +47,15 @@ fun JobScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
+                .background(colorResource(id = R.color.fetch_background))
                 .haze(state = hazeState),
             contentPadding = PaddingValues(
                 top = paddingValues.calculateTopPadding(), bottom = 70.dp
             )
         ) {
             items(jobs) { job ->
-                JobItemTest1(modifier = Modifier, job = job ,        onInfoClicked = {
+                MyCard(
+                    modifier = Modifier, job = job ,        onInfoClicked = {
                     detailScreenViewModel.setJob(job)
                     navController.navigate(Screens.DetailsScreen.screen)
                 },
