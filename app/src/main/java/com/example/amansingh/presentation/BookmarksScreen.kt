@@ -1,6 +1,7 @@
 package com.example.amansingh.presentation
 
 import android.widget.Space
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -12,12 +13,15 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.amansingh.R
 import dev.chrisbanes.haze.haze
 
 @Composable
@@ -35,25 +39,26 @@ fun BookmarksScreen(bookmarkScreenViewmodel: BookmarkScreenViewmodel) {
     }
     else
     {
-        LazyColumn {
+
+
+
+        LazyColumn(
+            modifier = Modifier.padding(top =90.dp, bottom = 120.dp)
+                .fillMaxSize()
+                .background(colorResource(id = R.color.fetch_background))
+
+
+            ) {
             items(bookmarkedjobs) { job ->
-                // Display each bookmarked job
-                Text(text = "Job Role: ${job.jobRole}")
-                Spacer(modifier = Modifier.height(4.dp))
-
-                Text(text = "Job location: ${job.location}")
-                Spacer(modifier = Modifier.height(4.dp))
-
-                Text(text = "Job Id: ${job.id}")
-                Spacer(modifier = Modifier.height(4.dp))
-
-                Text(text = "Job Contact number: ${job.contactNumber}")
-                Spacer(modifier = Modifier.height(4.dp))
 
 
-                Text(text = "Job Salary range: ${job.salaryMin} -${job.salaryMax}")
-                Spacer(modifier = Modifier.height(4.dp))
+
+                    BooKMarkScreenElement(job = job, bookmarkScreenViewmodel =bookmarkScreenViewmodel )
+
+
             }
+
+
         }
     }
 
