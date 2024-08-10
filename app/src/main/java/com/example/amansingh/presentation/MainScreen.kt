@@ -106,6 +106,7 @@ fun MainScreen(){
     ) { innerPadding ->
         val viewModel: MainActivityViewModel = viewModel()
         val viewModelDetails: DetailScreenViewModel = viewModel()
+        val bookmarkScreenViewmodel:BookmarkScreenViewmodel = viewModel()
         NavHost(
             navController = navigationController,
             startDestination = Screens.JobScreen.screen,
@@ -119,11 +120,12 @@ fun MainScreen(){
                     paddingValues = innerPadding,
                     viewModel = viewModel,
                     navController = navigationController,
-                    detailScreenViewModel = viewModelDetails
+                    detailScreenViewModel = viewModelDetails,
+                    bookmarkScreenViewmodel =bookmarkScreenViewmodel
                 )
             }
             composable(Screens.BookmarksScreen.screen) {
-                BookmarksScreen()
+                BookmarksScreen(bookmarkScreenViewmodel = bookmarkScreenViewmodel)
             }
 
             composable("jobDetails") {
