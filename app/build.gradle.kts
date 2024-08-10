@@ -95,4 +95,7 @@ dependencies {
     ksp("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:2.6.0")
    // annotationProcessor("androidx.room:room-compiler:$room_version")
+
+
+    implementation("io.coil-kt:coil-compose:2.7.0")
 }
