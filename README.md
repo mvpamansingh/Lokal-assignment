@@ -1,3 +1,7 @@
+## App video
+
+https://drive.google.com/file/d/1nHBgr4cBnbceIEspkY2uhBd92o8CIlQ4/view?usp=sharing
+
 ## Tech Stacks and Teachnologies
 - Kotlin
 - Jetpack Compose ( for UI)
