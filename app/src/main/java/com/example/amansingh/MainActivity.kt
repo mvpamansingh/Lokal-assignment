@@ -29,6 +29,7 @@ import com.example.amansingh.api.JobListAPI
 import com.example.amansingh.data.api.model.Results
 import com.example.amansingh.presentation.JobScreen
 import com.example.amansingh.presentation.MainScreen
+import com.example.amansingh.presentation.MyCard
 import com.example.amansingh.presentation.TopBar
 import com.example.amansingh.ui.theme.AmanSinghTheme
 import dagger.hilt.android.AndroidEntryPoint

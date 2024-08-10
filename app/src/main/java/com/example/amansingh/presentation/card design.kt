@@ -4,6 +4,7 @@ import androidx.compose.material3.Card
 
 import androidx.compose.ui.unit.dp
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -97,6 +98,7 @@ fun MyCard(
                             contactNumber = job.whatsapp_no,
                             id = job.id.toString()
                         )
+                        Toast.makeText(context, "Bookmark Added",Toast.LENGTH_SHORT).show()
                         bookmarkScreenViewmodel.addBookmark(bookmark)
                     },
                 ) {
