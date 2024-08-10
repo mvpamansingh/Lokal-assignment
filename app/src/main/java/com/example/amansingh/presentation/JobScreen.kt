@@ -16,6 +16,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.amansingh.MainActivityViewModel
 import com.example.amansingh.data.api.model.Results
 //import com.example.amansingh.ui.theme.Blur
@@ -29,8 +30,9 @@ fun JobScreen(
     modifier: Modifier = Modifier,
     hazeState: HazeState,
     paddingValues: PaddingValues,
-    viewModel: MainActivityViewModel
-
+    viewModel: MainActivityViewModel,
+    detailScreenViewModel: DetailScreenViewModel,
+    navController:NavHostController
 ) {
 
     val jobs = viewModel.jobList.collectAsState().value?.results ?: emptyList()
@@ -38,18 +40,7 @@ fun JobScreen(
 
     Box(modifier = modifier.background(MaterialTheme.colorScheme.background)) {
 
-//        JobList(
-//            modifier = Modifier
-//                .fillMaxSize()
-//                .haze(
-//                    state = hazeState,
-//                    style = HazeStyle(
-//                        blurRadius = 13.dp,
-////                        tint = BlurMaskFilter.Blur
-//                    )
-//                ),
-//            paddingValues = paddingValues
-//        )
+
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
@@ -59,7 +50,10 @@ fun JobScreen(
             )
         ) {
             items(jobs) { job ->
-                JobItemTest1(modifier = Modifier, job = job)
+                JobItemTest1(modifier = Modifier, job = job ,        onInfoClicked = {
+                    detailScreenViewModel.setJob(job)
+                    navController.navigate(Screens.DetailsScreen.screen)
+                } )
             }
 
             item{
