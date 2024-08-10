@@ -49,9 +49,7 @@ fun JobScreen(
                 .fillMaxSize()
                 .background(colorResource(id = R.color.fetch_background))
                 .haze(state = hazeState),
-            contentPadding = PaddingValues(
-                top = paddingValues.calculateTopPadding(), bottom = 70.dp
-            )
+
         ) {
             items(jobs) { job ->
                 MyCard(
