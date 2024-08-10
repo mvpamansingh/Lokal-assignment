@@ -32,6 +32,7 @@ fun JobScreen(
     paddingValues: PaddingValues,
     viewModel: MainActivityViewModel,
     detailScreenViewModel: DetailScreenViewModel,
+    bookmarkScreenViewmodel: BookmarkScreenViewmodel,
     navController:NavHostController
 ) {
 
@@ -53,7 +54,8 @@ fun JobScreen(
                 JobItemTest1(modifier = Modifier, job = job ,        onInfoClicked = {
                     detailScreenViewModel.setJob(job)
                     navController.navigate(Screens.DetailsScreen.screen)
-                } )
+                },
+                    bookmarkScreenViewmodel)
             }
 
             item{
