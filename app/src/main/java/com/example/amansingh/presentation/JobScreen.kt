@@ -52,12 +52,19 @@ fun JobScreen(
 
         ) {
             items(jobs) { job ->
-                MyCard(
-                    modifier = Modifier, job = job ,        onInfoClicked = {
-                    detailScreenViewModel.setJob(job)
-                    navController.navigate(Screens.DetailsScreen.screen)
-                },
-                    bookmarkScreenViewmodel)
+
+                if((!job.job_role.isNullOrBlank()) && (!job.job_location_slug.isNullOrBlank()) && (!job.whatsapp_no.isNullOrBlank()))
+                {
+                    MyCard(
+                        modifier = Modifier, job = job ,
+                        onInfoClicked = {
+                            detailScreenViewModel.setJob(job)
+                            navController.navigate(Screens.DetailsScreen.screen)
+                        },
+                        bookmarkScreenViewmodel
+                    )
+                }
+
             }
 
             item{
