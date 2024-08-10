@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -28,6 +29,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.amansingh.MainActivityViewModel
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.hazeChild
+import com.example.amansingh.R
+
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -65,7 +69,7 @@ fun MainScreen(){
 
         bottomBar = {
             BottomAppBar(
-                containerColor = Color.Transparent,
+                containerColor = colorResource(id = R.color.bottombar),
             ) {
                 IconButton(
                     onClick = {
@@ -80,7 +84,7 @@ fun MainScreen(){
                         Icons.Default.Work,
                         contentDescription = null,
                         modifier = Modifier.size(24.dp),
-                        tint = if (selected.value == Icons.Default.Work) Color.Green else Color.DarkGray
+                        tint = if (selected.value == Icons.Default.Work) Color.Black else Color.LightGray
                     )
                 }
 
@@ -97,7 +101,7 @@ fun MainScreen(){
                         Icons.Default.Bookmarks,
                         contentDescription = null,
                         modifier = Modifier.size(24.dp),
-                        tint = if (selected.value == Icons.Default.Bookmarks) Color.Green else Color.DarkGray
+                        tint = if (selected.value == Icons.Default.Bookmarks) Color.Black else Color.LightGray
                     )
                 }
             }
