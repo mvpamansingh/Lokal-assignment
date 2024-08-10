@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
-
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -88,5 +88,11 @@ dependencies {
 //    implementation("androidx.navigation:navigation-compose:2.4.0-alpha10")
     val nav_version = "2.7.7"
     implementation ("androidx.navigation:navigation-compose:$nav_version")
-    
+
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:2.6.0")
+   // annotationProcessor("androidx.room:room-compiler:$room_version")
 }
