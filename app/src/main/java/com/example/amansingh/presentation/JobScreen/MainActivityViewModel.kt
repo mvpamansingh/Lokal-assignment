@@ -1,4 +1,4 @@
-package com.example.amansingh
+package com.example.amansingh.presentation.JobScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,4 +1,4 @@
-package com.example.amansingh.presentation
+package com.example.amansingh.presentation.BookmarkScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

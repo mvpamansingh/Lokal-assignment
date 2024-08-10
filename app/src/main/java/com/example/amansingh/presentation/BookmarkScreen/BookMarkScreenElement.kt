@@ -1,4 +1,4 @@
-package com.example.amansingh.presentation
+package com.example.amansingh.presentation.BookmarkScreen
 
 
 
@@ -6,15 +6,9 @@ package com.example.amansingh.presentation
 import androidx.compose.material3.Card
 
 import androidx.compose.ui.unit.dp
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.CurrencyRupee
 import androidx.compose.material.icons.filled.LocationOn
@@ -28,11 +22,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.amansingh.R
-import com.example.amansingh.data.api.model.Results
 import com.example.amansingh.data.room.JobEntity
 
 

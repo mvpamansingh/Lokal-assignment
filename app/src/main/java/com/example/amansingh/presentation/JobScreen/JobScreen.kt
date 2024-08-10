@@ -1,6 +1,5 @@
-package com.example.amansingh.presentation
+package com.example.amansingh.presentation.JobScreen
 
-import android.graphics.BlurMaskFilter
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,13 +17,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.amansingh.MainActivityViewModel
 import com.example.amansingh.data.api.model.Results
 //import com.example.amansingh.ui.theme.Blur
 import dev.chrisbanes.haze.HazeState
-import dev.chrisbanes.haze.HazeStyle
 import dev.chrisbanes.haze.haze
 import com.example.amansingh.R
+import com.example.amansingh.presentation.BookmarkScreen.BookmarkScreenViewmodel
+import com.example.amansingh.presentation.DetailScreen.DetailScreenViewModel
+import com.example.amansingh.navigation.Screens
 
 
 @Composable

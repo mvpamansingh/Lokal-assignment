@@ -26,11 +26,17 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.amansingh.MainActivityViewModel
+import com.example.amansingh.presentation.JobScreen.MainActivityViewModel
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.hazeChild
 import com.example.amansingh.R
-
+import com.example.amansingh.navigation.Screens
+import com.example.amansingh.presentation.BookmarkScreen.BookmarkScreenViewmodel
+import com.example.amansingh.presentation.BookmarkScreen.BookmarksScreen
+import com.example.amansingh.presentation.DetailScreen.DetailScreenViewModel
+import com.example.amansingh.presentation.DetailScreen.DetailsScreen
+import com.example.amansingh.presentation.JobScreen.JobScreen
+import com.example.amansingh.presentation.common.TopBar
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -110,7 +116,7 @@ fun MainScreen(){
     ) { innerPadding ->
         val viewModel: MainActivityViewModel = viewModel()
         val viewModelDetails: DetailScreenViewModel = viewModel()
-        val bookmarkScreenViewmodel:BookmarkScreenViewmodel = viewModel()
+        val bookmarkScreenViewmodel: BookmarkScreenViewmodel = viewModel()
         NavHost(
             navController = navigationController,
             startDestination = Screens.JobScreen.screen,
