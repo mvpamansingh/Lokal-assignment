@@ -105,22 +105,36 @@ fun MainScreen(){
 
     ) { innerPadding ->
         val viewModel: MainActivityViewModel = viewModel()
-
+        val viewModelDetails: DetailScreenViewModel = viewModel()
         NavHost(
             navController = navigationController,
             startDestination = Screens.JobScreen.screen,
             modifier = Modifier.padding(0.dp)
         ) {
             composable(Screens.JobScreen.screen) {
+
                 JobScreen(
                     modifier = Modifier.padding(innerPadding),
                     hazeState = hazeState,
                     paddingValues = innerPadding,
-                    viewModel = viewModel
+                    viewModel = viewModel,
+                    navController = navigationController,
+                    detailScreenViewModel = viewModelDetails
                 )
             }
             composable(Screens.BookmarksScreen.screen) {
                 BookmarksScreen()
+            }
+
+            composable("jobDetails") {
+
+//                val job = viewModelDetails.job
+//                if (job != null) {
+//                    JobDetailsScreen(job)
+//                } else {
+//                    // Handle null case, perhaps navigate back or show an error
+//                }
+                DetailsScreen(detailScreenViewModel = viewModelDetails)
             }
         }
     }
